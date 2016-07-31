@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vexor: Configuration </title>
+    <meta charset="utf-8">
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin" media="screen" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="screen" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+    <link href="/stylesheets/landing.css" media="all" rel="stylesheet" />
+    <link href="/stylesheets/content.css" media="all" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="/blog/feed.xml">
+  </head>
+  <body>
+    <div class='landing'>
+      <nav class='navbar navbar-default' role='navigation'>
+        <div class='container-fluid'>
+          <div class='container'>
+            <div class='row'>
+              <div class='navbar-header header-logo'>
+                <a class='navbar-brand' href='/'><img alt="Logo" class="logo" src="/images/landing/logo.png" /></a>
+              </div>
+
+              <button class='navbar-toggle pull-right' data-target='#navbar-items' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar' ></span>
+                <span class='icon-bar' ></span>
+                <span class='icon-bar' ></span>
+              </button>
+
+              <div class="clearfix"></div>
+              <div class='collapse navbar-collapse' id='navbar-items'>
+                <ul class='nav navbar-nav'>
+                  <li><a data-scroll="true" href="/#features"><span>Особенности</span></a></li>
+                  <li><a data-scroll="true" href="/#pricing"><span>Стоимость</span></a></li>
+                  <li><a href="https://vexor.io/help/"><span>Документация</span></a></li>
+                  <li><a href="https://medium.com/vexor-ci-russian"><span>Блог</span></a></li>
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                  <li>
+                    <a data-signin=true href="https://ci.vexor.io/ui">
+                      Войти
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="page">
+        <div class='block-header content-block-header hidden'>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Help Center</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid help">
+  <div class="row">
+
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li><a href="#">Getting started</a></li>
+        <li>
+          <ul class="nav nav-sidebar">
+            <li><a href="#getting-started-registration">Registration</a></li>
+            <li><a href="#getting-started-team-settings">Team settings</a></li>
+            <li><a href="#getting-started-adding-a-project">Adding a project</a></li>
+            <li><a href="#getting-started-project-notifications">Project notifications</a></li>
+          </ul>
+        </li>
+        <li><a href="#project-settings">Project settings</a></li>
+        <li>
+          <ul class="nav nav-sidebar">
+            <li><a href="#project-settings-language">Language</a></li>
+            <li><a href="#project-settings-build-restrictions">Filtering branches</a></li>
+            <li><a href="#project-settings-build-statuses">Build statuses</a></li>
+            <li><a href="#project-settings-cancel-ongoing-build">Cancelling ongoing builds</a></li>
+            <li><a href="#project-settings-slack-notifications">Slack notifications</a></li>
+            <li><a href="#project-settings-env-vars">Environment variables</a></li>
+            <li><a href="#project-settings-ssh-keys">SSH keys</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#config-file">Vexor config file</a></li>
+
+        <li>
+          <ul class="nav nav-sidebar">
+            <li><a href="#config-common-keys">Common keys</a></li>
+
+            <li>
+              <ul class="nav nav-sidebar">
+                <li><a href="#config-language">language</a></li>
+                <li><a href="#config-env">env</a></li>
+                <li><a href="#config-before-install">before_install</a></li>
+                <li><a href="#config-install">install</a></li>
+                <li><a href="#config-database">database</a></li>
+                <li><a href="#config-before-script">before_script</a></li>
+                <li><a href="#config-services">services</a></li>
+                <li><a href="#config-script">script</a></li>
+                <li><a href="#config-chdir">chdir</a></li>
+                <li><a href="#config-timeout">timeout</a></li>
+                <li><a href="#config-read-timeout">read_timeout</a></li>
+                <li><a href="#config-cache">cache</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#config-languages">Language versions</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#builds">Builds</a></li>
+
+        <li>
+          <ul class="nav nav-sidebar">
+            <li><a href="#builds-cancel">Cancel a build</a></li>
+            <li><a href="#builds-rebuild">Rebuild</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#parallelism">Parallelism</a></li>
+
+        <li>
+          <ul class="nav nav-sidebar">
+            <li><a href="#parallelism-versions">Different language versions</a></li>
+            <li><a href="#parallelism-env">Different scripts</a></li>
+            <li><a href="#parallelism-combined">Versions and scripts combined</a></li>
+            <li><a href="#parallelism-rspec">Parallel Rspec</a></li>
+          </ul>
+        </li>
+        <li><a href="#services">Preinstalled packages</a></li>
+        <li><a href="#language-guides">Language guides</a></li>
+        <li>
+          <ul class="nav nav-sidebar">
+            <li><a href="#language-guides-ruby">Ruby</a></li>
+            <li><a href="#language-guides-clojure">Clojure</a></li>
+            <li><a href="#language-guides-scala">Scala</a></li>
+            <li><a href="#language-guides-python">Python</a></li>
+            <li><a href="#language-guides-nodejs">Node.js</a></li>
+            <li><a href="#language-guides-golang">Go</a></li>
+            <li><a href="#language-guides-rust">Rust</a></li>
+          </ul>
+        <li><a href="#deploy">Deploying apps</a></li>
+        <li><a href="#ssh">SSHing into builds</a></li>
+        <li><a href="#billing">Billing</a></li>
+
+
+      </ul>
+
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 help-page">
+      <h1>Getting started with Vexor</h1>
+
+<h2>Registration<a class="anchor" id="getting-started-registration"></a></h2>
+
+<p>In order to start using Vexor you should have a GitHub or BitBucket account.</p>
+
+<p><img src="/images/docs/01.jpg" alt="Sign up to Vexor"></p>
+
+<p>Vexor supports 3 popular source control providers: <a href="https://github.com">GitHub</a>, <a href="https://bitbucket.org">BitBucket</a> and <a href="https://gitlab.com">GitLab</a>. No matter which one you&#39;ve signed up with, you can always connect another, as well as update your email address and name, on the Profile Settings page.</p>
+
+<p><img src="/images/docs/02.jpg" alt="Profile settings"></p>
+
+<h2>Team settings<a class="anchor" id="getting-started-team-settings"></a></h2>
+
+<p>Collaborators can be invited to your team on the &quot;Users&quot; page. Each user can be assigned with a role Admin or Developer. Developers cannot remove projects and add users to the team.</p>
+
+<p><img src="/images/docs/04.jpg" alt="Team settings"></p>
+
+<h2>Adding a project<a class="anchor" id="getting-started-adding-a-project"></a></h2>
+
+<p>There&#39;s a list of all repos imported from your connected accounts in the &quot;Add project&quot; section.</p>
+
+<p><img src="/images/docs/03.jpg" alt="Projects list"></p>
+
+<p>To add a project and make a first build just press &quot;Add&quot;. You&#39;ll be asked to specify a project&#39;s language while adding.</p>
+
+<p><img src="/images/docs/05.jpg" alt="Adding a project"></p>
+
+<p>Then you&#39;ll be redirected to the freshly added project.</p>
+
+<p><img src="/images/docs/06.jpg" alt="Project page"></p>
+
+<h2>Project notification settings<a class="anchor" id="getting-started-project-notifications"></a></h2>
+
+<p>You can choose on which occasions you will be notified about your project&#39;s build statuses. There&#39;re three available options:</p>
+
+<ul>
+<li><strong>Watching</strong> (default): Get an email after each build is completed whether it&#39;s failed or succeeded.</li>
+<li><strong>Not watching</strong>: Get an email only if a build was initiated by your commit or pull request.</li>
+<li><strong>Ignoring</strong>: Don&#39;t get any emails about this project.</li>
+</ul>
+
+<p><img src="/images/docs/07.jpg" alt="Project notifications settings"></p>
+
+<h1>Project settings<a class="anchor" id="project-settings"></a></h1>
+
+<p>Secure env variables, SSH keys and build restrictions can be configured on project&#39;s &quot;Settings&quot; page.</p>
+
+<p><img src="/images/docs/project-settings.jpg" alt="Project settings page"></p>
+
+<h2>Choosing project&#39;s language<a class="anchor" id="project-settings-language"></a></h2>
+
+<p>Project&#39;s language can be changed here.</p>
+
+<p><img src="/images/docs/project-settings-language.jpg" alt="Project settings language"></p>
+
+<h2>Configuring build restrictions<a class="anchor" id="project-settings-build-restrictions"></a></h2>
+
+<p>You can specify which branches you want to be built by a regular expression in the &quot;Filter pushes&quot; popup.</p>
+
+<p><img src="/images/docs/project-settings-build-restrictions.jpg" alt="Project settings | Filter branches"></p>
+
+<p>We don&#39;t build pull requests from the same repo by default, because builds are already being initiated by pushes to a repo. This behavior can be changed by clicking on a &quot;Build pull requests&quot; checkbox (e.g. if you have filtered some branches but want to build all PRs). Pull requests from foreign repos are being built always, whether &quot;Build pull requests&quot; checkbox is on or not.</p>
+
+<h2>Configuring build statuses on GitHub or GitLab (no BitBucket, sorry)<a class="anchor" id="project-settings-build-statuses"></a></h2>
+
+<p>Build statuses shown in pull requests could be configured here. Enabled by default.</p>
+
+<p><img src="/images/docs/project-settings-build-statuses.jpg" alt="Project settings | Build statuses"></p>
+
+<h2>Canceling running builds after a push to the same branch<a class="anchor" id="project-settings-cancel-ongoing-build"></a></h2>
+
+<p>You might want ongoing builds to get cancelled after a push to the same branch. Enabled by default.</p>
+
+<p><img src="/images/docs/project-settings-cancel-builds.jpg" alt="Project settings | Cancel builds"></p>
+
+<h2>Configuring Slack notifications<a class="anchor" id="project-settings-slack-notifications"></a></h2>
+
+<p>Vexor can send build notifications to Slack channels. To enable this feature you should create an incoming webhook on the Slack integrations page and paste it to the &quot;slack&quot; section of the Vexor project settings page.</p>
+
+<p><img src="/images/docs/project-settings-slack.jpg" alt="Project settings | Slack"></p>
+
+<h2>Securing environment variables<a class="anchor" id="project-settings-env-vars"></a></h2>
+
+<p>You can add secure environment variables to your project (e.g. Heroku tokens, Code Climate keys, etc.). Note that env-vars which don&#39;t have to be secure could also be added via <code>.vexor.yml</code> config file.</p>
+
+<p><img src="/images/docs/project-settings-env-vars.jpg" alt="Project settings | env vars"></p>
+
+<h2>Adding SSH keys<a class="anchor" id="project-settings-ssh-keys"></a></h2>
+
+<p>Additional SSH keys can also be added through the interface. Note that you might want to keep keys in a particular order. User-added SSH keys are being added to the agent before the project&#39;s deploy key, ordered from most recent to earliest.</p>
+
+<p><img src="/images/docs/project-settings-ssh-keys.jpg" alt="Project settings | SSH keys"></p>
+
+<h1>Vexor config file<a class="anchor" id="config-file"></a></h1>
+
+<p>Project&#39;s config should be stored in <code>vexor.yml</code> (<code>.vexor.yml</code> works too) file in a root directory. For those who are migrating from Travis it is possible to use <code>.travis.yml</code> file but it&#39;s recommended to switch to <code>vexor.yml</code> config, because Vexor is not fully compatible with Travis and uses slightly different configuration options.</p>
+
+<h2>Available configuration keys</h2>
+
+<h3>Common keys<a class="anchor" id="config-common-keys"></a></h3>
+
+<h4>language <em>string</em><a class="anchor" id="config-language"></a></h4>
+
+<p>Specify a language so Vexor could run language-specific preparations for your project. If you don&#39;t have a Vexor config included in your repo&#39;s root, a default config will be used, which has only the <code>language</code> key based on a language you&#39;ve chosen when added a repo to Vexor. If config file is empty, without language specified, your build won&#39;t we able to run.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  language: ruby
+</code></pre></div>
+<h4>env <em>map</em><a class="anchor" id="config-env"></a></h4>
+
+<p>Set up your environment variables here. For secure env-vars see <a href="#project-settings-env-vars">Configuring project ENV variables</a> section. Environment config consists of three sections: <code>global</code>, <code>exclude</code> and <code>matrix</code>.</p>
+
+<p><strong>Global</strong></p>
+
+<p>A list of global environment variables exported into the system.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  env:
+    global:
+    - VAR1=some_stuff
+    - VAR2=&quot;i&#39;m a var with spaces&quot;
+</code></pre></div>
+<p><strong>Matrix</strong></p>
+
+<p>A list of martix-specific variables. For each variable there will be one job started with this var + all vars from <code>global</code> section exported. See <a href="#parallelism">Parallelism</a> for better matrix understanding.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  env:
+    martix:
+    - SCRIPT=script_for_one_job
+    - SCRIPT=script_for_another_job
+</code></pre></div>
+<p><strong>Exclude</strong></p>
+
+<p>Soon</p>
+
+<p><strong>Full example</strong></p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  env:
+    global:
+    - RAILS_ENV=test
+    - DATABASE_URL=postgresql://postgres@herokupgserver.com/my_database
+    matrix:
+    - SCRIPT=&quot;bundle exec rspec&quot;
+    - SCRIPT=&quot;bundle exec brakeman&quot;
+    - SCRIPT=&quot;bundle exec rubocop&quot;
+
+</code></pre></div>
+<h4>before_install <em>array</em><a class="anchor" id="config-before-install"></a></h4>
+
+<p>A list of commands called before installation stage.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  before_install:
+  - echo called before installing any dependencies
+  - ... etc.
+</code></pre></div>
+<h4>install <em>array</em><a class="anchor" id="config-install"></a></h4>
+
+<p>By default we install a number of packages depending on a language specified at the beginning of your config file, including a language binary itself. Use this option to override this behavior.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  install:
+  - sudo apt-get install -y ruby-build rbenv
+  - rbenv install 2.1.2
+  - gem install bundler
+  - ... etc.
+</code></pre></div>
+<h4>database <em>array</em><a class="anchor" id="config-database"></a></h4>
+
+<p>A list of database-related configuration.</p>
+
+<p>We already have Postgresql 9.4 (with postgres-contrib), MySQL 5.6, MongoDB 2.6.5 and Redis 3.0.2 installed in containers.</p>
+
+<p><strong>Using PostgreSQL</strong></p>
+
+<p>Postgres starts automatically in containers. Use <code>postgres</code> user to execute psql command.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  database:
+  - psql -U postgres -c &quot;create database test;&quot;
+</code></pre></div>
+<p><strong>Using MySQL</strong></p>
+
+<p>MySQL is already running by default in containers. Use <code>root</code> user to call mysql queries.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  database:
+  – mysql -u root -e &quot;create database test;&quot;
+</code></pre></div>
+<p><em>Notice for Rails users</em>: by default we&#39;re already running all necessary database configuration to get Rails tests working so in most cases you don&#39;t have to write any database configuration at all. Use <code>database</code> config only if you want to override this behavior.</p>
+
+<h4>before_script <em>array</em><a class="anchor" id="config-before-script"></a></h4>
+
+<p>A list of commands called after installation and database stages but before running tests. Usually it&#39;s used to install additional dependencies when the system&#39;s environment&#39;s already configured (e.g you need to install additional gems etc.)</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  before_script:
+  - sudo npm install bower
+  - sudo gem install brakeman
+</code></pre></div>
+<h4>services <em>array</em><a class="anchor" id="config-services"></a></h4>
+
+<p>Additional services you want to run in your container. For each specified service there will be <code>sudo service #{specified_service} start</code> command executed. <a href="https://github.com/vexor/vx-docker-image/tree/master/docker/trusty/playbooks/roles">Here</a> you can see which services are already present in our image.</p>
+
+<p>See <a href="#services">Services</a> for details about versions installed in our image.</p>
+
+<p><strong>Note</strong>: <em>There&#39;s an alias for <code>rabbitmq-server</code>. You could simply write <code>rabbitmq</code>.</em></p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  services:
+  - rabbitmq
+  - redis-server
+</code></pre></div>
+<h4>script <em>string</em><a class="anchor" id="config-script"></a></h4>
+
+<p>You can override a command which runs tests. This might be useful together with <code>matrix</code> when you want to run your test in parallel.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  script: bundle exec rspec
+</code></pre></div>
+<h4>workdir <em>string</em><a class="anchor" id="config-chdir"></a></h4>
+
+<p>Your project&#39;s working directory. By default it&#39;s set to your repo&#39;s root directory (which is <code>~/org_name/project_name</code>).</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  workdir: relative_dir
+</code></pre></div>
+<h4>timeout <em>int</em><a class="anchor" id="config-timeout"></a></h4>
+
+<p>Job&#39;s maximum running time in seconds. Default is 1 hour.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  vexor:
+    timeout: 1800
+</code></pre></div>
+<h4>read_timeout <em>int</em><a class="anchor" id="config-read-timeout"></a></h4>
+
+<p>If there wasn&#39;t any output within the read timeout (in seconds) a job will be shut down.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  vexor:
+    read_timeout: 60
+</code></pre></div>
+<h4>cache <a class="anchor" id="config-cache"></a></h4>
+
+<p>Enable/disable dependencies caching. <code>True</code> by default.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  cache: false
+</code></pre></div>
+<p><b>Directories caching:</b></p>
+
+<p>You can download some packages before running tests and install them. To get away from downloading the package each time you can cache directory where it is located. Then delete &quot;wget&quot; from your config file and just &quot;make&quot; or &quot;dpkg&quot; your package at each run of tests.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">  cache:
+    enabled: true
+    directories:
+    - ~/my_deps1
+    - /usr/local/my_deps2
+    - .....
+</code></pre></div>
+<h3>Language versions<a class="anchor" id="config-languages"></a></h3>
+
+<p>Each of these keys usually gets a list of language versions which you want to run tests against. If you specified env:matrix, there will be <code>versions_num * martix_size</code> jobs. See <a href="#parallelism">Paralleism</a> for better understanding.</p>
+
+<ul>
+<li><strong>rvm</strong> <em>array</em></li>
+<li><strong>go</strong> <em>array</em></li>
+<li><strong>jdk</strong> <em>array</em></li>
+<li><strong>scala</strong> <em>array</em></li>
+<li><strong>node_js</strong> <em>array</em></li>
+<li><strong>python</strong> <em>array</em></li>
+</ul>
+
+<p>Example:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">rvm:
+- 1.9.3
+- 2.0.0-p0
+- 2.1.1
+</code></pre></div>
+<h1>Builds<a class="anchor" id="builds"></a></h1>
+
+<h2>Cancel a build<a class="anchor" id="builds-cancel"></a></h2>
+
+<p>You can cancel any build by clicking a &quot;Stop&quot; button on a build page. A particular job cannot be stopped.</p>
+
+<p><img src="/images/docs/cancelling-build.jpg" alt="Cancelling a build"></p>
+
+<h2>Restart a build<a class="anchor" id="builds-rebuild"></a></h2>
+
+<p>Any finished build can be restarted.</p>
+
+<p>If you want to restart a build without changing any build configuration, just click a &quot;Rebuild&quot; button on a build page.</p>
+
+<p><img src="/images/docs/rebuild.jpg" alt="Rebuild"></p>
+
+<p>In case you want to quickly test some configuration options out without commiting every <code>vexor.yml</code> change to a repo, you can use &quot;Edit config&quot; feature. Click &quot;Edit config&quot; button on a build page, modify your configuration and then click &quot;Rebuild with new config&quot; button. A new build will be created.</p>
+
+<p><img src="/images/docs/rebuild-with-new-config.jpg" alt="Rebuild with new config"></p>
+
+<h1>Parallelism<a class="anchor" id="parallelism"></a></h1>
+
+<p>One of the Vexor&#39;s main advantages is that it can run an unlimited amount of jobs in parallel. There&#39;re several ways to set up parallelim.</p>
+
+<h2>Running tests in parallel against different language versions.<a class="anchor" id="parallelism-versions"></a></h2>
+
+<p>You can specify different language versions (see <a href="#vexor-yml-language-versions">Language versions</a> for details) in <code>vexor.yml</code> config file. For each version there will be a job started.</p>
+
+<p><strong>Example:</strong></p>
+
+<p>Config:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">rvm:
+  - 2.1.0
+  - 2.0.0
+  - 1.9.3
+  - rbx-2
+</code></pre></div>
+<p>Result:</p>
+
+<p><img src="/images/docs/parallelism-capistrano-example.jpg" alt="Parallelism | Capistrano example"></p>
+
+<h2>Running a different script for each job<a class="anchor" id="parallelism-env"></a></h2>
+
+<p>Parallel jobs can also be configured via <code>env:matrix</code> key in <code>vexor.yml</code> file. The basic idea is that you specify a script which depends on an environment variable and assign different values to this variable in the matrix section of a config file. Here&#39;s an example of how we&#39;re using this aproach to build the Vexor web app:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">env:
+  matrix:
+  - PROJECT=backend
+  - PROJECT=frontend
+
+script: bundle exec rake test:${PROJECT}
+</code></pre></div>
+<p>And here&#39;s a resulting build:</p>
+
+<p><img src="/images/docs/parallelism-vexor-example.jpg" alt="Parallelism | Vexor example"></p>
+
+<p>Here&#39;s another example of how to use matrix for build parallelization. We&#39;re gonna run Rspec, check security with Brakeman, check code quality with Rubocop and check our coffee, scss and haml files.</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">env:
+  matrix:
+    - BUILD_CMD=&#39;rspec&#39;
+    - BUILD_CMD=&#39;rubocop&#39;
+    - BUILD_CMD=&#39;brakeman -z&#39;
+    - BUILD_CMD=&#39;haml-lint app/views/&#39;
+    - BUILD_CMD=&#39;scss-lint&#39;
+    - BUILD_CMD=&#39;rake coffeelint&#39;
+script: bundle exec ${BUILD_CMD}
+</code></pre></div>
+<p><img src="/images/docs/parallelism-vexor-2-example.jpg" alt="Parallelism | Vexor 2 example"></p>
+
+<h2>Combining language versions with a matrix<a class="anchor" id="parallelism-combined"></a></h2>
+
+<p>&quot;Matrix&quot; and &quot;language versions&quot; approaches can be combined. A resulting build will be containing <code>versions_num * matrix_size</code> jobs.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml">env:
+  matrix:
+  - TEST_SUITE=test
+  - TEST_SUITE=cucumber
+
+rvm:
+- 2.2
+- 2.1
+- 2.0
+</code></pre></div>
+<p>And the result is:</p>
+
+<p><img src="/images/docs/parallelism-jekyll-example.jpg" alt="Parallelism | Jekyll example"></p>
+
+<h2>Parallel Rspec<a class="anchor" id="parallelism-rspec"></a></h2>
+
+<p>There&#39;s another option for Rails users. You can specify a number of parallel jobs and set <code>script</code> to <code>parallel_rspec</code> to run automatically Rspec jobs in parallel.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">parallel: 4
+script: parallel_rspec
+</code></pre></div>
+<h1>Preinstalled packages<a class="anchor" id="services"></a></h1>
+
+<p>There&#39;s a number of preinstalled packages in our image.</p>
+
+<h3>Xvfb</h3>
+
+<p>We already have <code>xvfb</code> installed and running in our image.</p>
+
+<h3>Postgresql</h3>
+
+<p>Version 9.4 with Contrib package is preinstalled and run automatically. Use login <code>postgres</code> without a password.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">psql -U postgres -c &quot;create database test;&quot;
+</code></pre></div>
+<h3>Mysql</h3>
+
+<p>Version 5.6 is preinstalled and run automatically. Use login <code>root</code> without a password.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mysql -u root -e &quot;create database test&quot;
+</code></pre></div>
+<h3>MongoDB</h3>
+
+<p>Version 3.2 is preinstalled.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">services:
+  - mongodb
+</code></pre></div>
+<h3>Redis</h3>
+
+<p>Version 3.0.2 is preinstalled and run automatically</p>
+
+<h3>Rabbitmq</h3>
+
+<p>Version 3.6.1 is preinstalled; to run, issue:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">services:
+  - rabbitmq
+</code></pre></div>
+<h3>Elasticsearch</h3>
+
+<p>Version 1.5.2 is preinstalled; to run, issue:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">services:
+  - elasticsearch
+</code></pre></div>
+<p>You can use v2.1.1 also:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">services:
+  - elasticsearch2
+</code></pre></div>
+<h3>PhantomJS</h3>
+
+<p>Version 2.1.1 is preinstalled</p>
+
+<h3>SphinxSearch</h3>
+
+<p>Version 2.2.10 is preinstalled</p>
+
+<h1>Language guides<a class="anchor" id="language-guides"></a></h1>
+
+<h2>Ruby<a class="anchor" id="language-guides-ruby"></a></h2>
+
+<p>In order to start ruby tests, you only need to specify the language:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">language: ruby
+</code></pre></div>
+<p>In this simplest case the <code>2.0.0</code> ruby version will be used and these commands will be run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">install: bundle install
+script: bundle exec rake
+</code></pre></div>
+<p>If you&#39;re using <code>rails</code>, you will need to setup the DB before running tests:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">before_script:
+- bundle exec rake db:create db:migrate RAILS_ENV=test
+</code></pre></div>
+<p>You can specify additional bundler options:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">bundler_args: --without debugger
+</code></pre></div>
+<p>You can also specify several different Gemfile versions, in this case
+a matrix will be created:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">gemfile:
+- Gemfile.pg
+- Gemfile.mysql
+</code></pre></div>
+<p>These versions of ruby are available for testing:</p>
+
+<ul>
+<li><code>1.8.7-p375</code></li>
+<li><code>1.9.2-p320</code></li>
+<li><code>1.9.3-p550</code></li>
+<li><code>2.0.0-p645</code></li>
+<li><code>2.1.0</code></li>
+<li><code>2.1.1</code></li>
+<li><code>2.1.2</code></li>
+<li><code>2.1.3</code></li>
+<li><code>2.1.4</code></li>
+<li><code>2.1.5</code></li>
+<li><code>2.1.6</code></li>
+<li><code>2.1.7</code></li>
+<li><code>2.1.8</code></li>
+<li><code>2.1.9</code></li>
+<li><code>2.1.10</code></li>
+<li><code>2.2.0</code></li>
+<li><code>2.2.1</code></li>
+<li><code>2.2.2</code></li>
+<li><code>2.2.3</code></li>
+<li><code>2.2.4</code></li>
+<li><code>2.2.5</code></li>
+<li><code>2.3.0</code></li>
+<li><code>2.3.1</code></li>
+<li><code>jruby-1.7.19</code></li>
+<li><code>jruby-1.7.23</code></li>
+<li><code>jruby-9.0.0.0</code></li>
+<li><code>rbx-2.5.2</code></li>
+<li><code>head</code>, fresh repository version, rebuilt every week</li>
+</ul>
+
+<p>To select the required version, use <code>rvm</code> key:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">rvm:
+- 2.0
+- 2.1
+- head
+</code></pre></div>
+<p>When searching a ruby version, a fuzzy matching is used, so you don&#39;t need to strictly specify the versions.
+If for whatever reasons you need the version we don&#39;t have, you have <code>ruby-build</code> preinstalled on the build
+machine, so you can always compile the required version.</p>
+
+<p>In order to save time when running tests, installed gems are cached.
+You can disable this with:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cache: false
+</code></pre></div>
+<p>We don&#39;t use <code>rbenv</code> or <code>rvm</code> to manage the ruby versions; all rubies are
+built as deb packages. When running your tests, the required ruby version
+is installed from the corresponding deb package.
+We don&#39;t have neither <code>rbenv</code>, nor <code>rvm</code> on the testing machine, but
+<code>ruby-build</code> is installed and can be used to compile the required version.
+The best option, however, will be to let us know which ruby version you need and
+we&#39;ll create the deb package for you.</p>
+
+<h2>Clojure<a class="anchor" id="language-guides-clojure"></a></h2>
+
+<p>To run Clojure apps you should issue:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">language: clojure
+</code></pre></div>
+<p>Leiningen 2.3.4 is preinstalled in image; 1.x isn&#39;t supported; symlink lein -&gt; lein2 is included for Travis compatibility.</p>
+
+<p>These commands will be run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">lein deps
+lein test
+</code></pre></div>
+<p>You can set your custom command to run the tests:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">script: lein midje
+</code></pre></div>
+<p>You can specify a different version of the JDK</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">jdk:
+  - openjdk7
+  - oraclejdk7
+</code></pre></div>
+<p>JDKs preinstalled in image include</p>
+
+<ul>
+<li>openjdk7</li>
+<li>oraclejdk7</li>
+<li>oraclejdk8</li>
+</ul>
+
+<p>Java 6 isn&#39;t included.</p>
+
+<h2>Scala<a class="anchor" id="language-guides-scala"></a></h2>
+
+<p>To run Scala apps issue:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">language: scala
+</code></pre></div>
+<p>Scala 2.10.3 is used by default.</p>
+
+<p>Because of Scala&#39;s versions multitude and incompatibilities it&#39;s not preinstalled
+in image. Instead, <a href="https://github.com/paulp/sbt-extras">sbt-extras</a> is used together with caching.
+<a href="https://github.com/paulp/sbt-extras">sbt-extras</a> detects and automatically installs the required version sbt which,
+in turn, manages the version of the language. Everything is being installed and set up
+during the first run, then works fast because of caching.</p>
+
+<p>Testing is run with these commands:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sbt ++$SCALA_VERSION update
+sbt ++$SCALA_VERSION test
+</code></pre></div>
+<p>Scala and Java versions can be managed:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">scala:
+  - 2.10.2
+  - 2.10.3
+
+jdk:
+  - openjdk7
+  - oraclejdk7
+</code></pre></div>
+<p>JDKs preinstalled in image include</p>
+
+<ul>
+<li>openjdk7</li>
+<li>oraclejdk7</li>
+<li>oraclejdk8</li>
+</ul>
+
+<p>Java 6 isn&#39;t included.</p>
+
+<p>Caching is turned on automatically when you use Scala. To turn it off set:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cache: false
+</code></pre></div>
+<h2>Python<a class="anchor" id="language-guides-python"></a></h2>
+
+<p>In order to run tests for a <strong>python</strong> project you need to specify the language:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">`language: python`
+</code></pre></div>
+<p><code>python version 2.7</code> will be used for running the tests and the following commands will be run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">install:
+  virtualenv ~/.python-virtualenv
+  source ~/.python-virtualenv/bin/activate
+
+  pip install -r [Rr]equirements.txt
+  or
+  python setup.py install
+
+script:
+  python manage.py test
+  # or
+  python setup.py test
+  # or
+  nosetests
+</code></pre></div>
+<p>These versions of <strong>python</strong> are available</p>
+
+<ul>
+<li><code>2.7.9</code></li>
+<li><code>2.7.10</code></li>
+<li><code>2.7.11</code></li>
+<li><code>3.2.6</code></li>
+<li><code>3.3.6</code></li>
+<li><code>3.4.3</code></li>
+<li><code>3.5.0</code></li>
+<li><code>3.5.1</code></li>
+<li><code>pypy-2.5.0</code></li>
+</ul>
+
+<p>To select a specific version for testing, a <code>python</code> config key should be used:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">python:
+- 2.7
+- pypy-2
+</code></pre></div>
+<p>When searching the <strong>python</strong> version, fuzzy matching is used, which first tries to find a
+match strictly, and then falls back to the closest version if not found.</p>
+
+<h2>Node.js<a class="anchor" id="language-guides-nodejs"></a></h2>
+
+<p>In order to run the nodejs tests, you need to specify:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">language: node_js
+</code></pre></div>
+<p>In this case the version <code>0.10.29</code> will be used and the following commands will be run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">install: npm install
+script: npm test
+</code></pre></div>
+<p>These versions of nodejs are available for testing</p>
+
+<ul>
+<li><code>0.8.28</code></li>
+<li><code>0.9.12</code></li>
+<li><code>0.10.37</code></li>
+<li><code>0.10.40</code></li>
+<li><code>0.11.16</code></li>
+<li><code>0.12.0</code></li>
+<li><code>0.12.2</code></li>
+<li><code>4.0.0</code></li>
+<li><code>4.2.2</code></li>
+<li><code>4.2.3</code></li>
+<li><code>4.2.4</code></li>
+<li><code>4.2.5</code></li>
+<li><code>4.2.6</code></li>
+<li><code>4.4.2</code></li>
+<li><code>4.4.4</code></li>
+<li><code>5.1.0</code></li>
+<li><code>5.2.0</code></li>
+<li><code>5.3.0</code></li>
+<li><code>5.4.0</code></li>
+<li><code>5.4.1</code></li>
+<li><code>5.5.0</code></li>
+<li><code>5.10.1</code></li>
+<li><code>5.11.0</code></li>
+<li><code>5.11.1</code></li>
+<li><code>6.0.0</code></li>
+<li><code>6.1.0</code></li>
+</ul>
+
+<p>To select the specific version for testing, a configuration key <code>node_js</code> is used</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">node_js:
+- &quot;0.9&quot;
+- &quot;0.10&quot;
+</code></pre></div>
+<p>When searching the <strong>nodejs</strong> version, fuzzy matching is used, which first tries to find a
+match strictly, and then falls back to the closest version if not found.</p>
+
+<p>Build machine has phantomjs 1.9.7 preinstalled, which you can use for headless testing.</p>
+
+<h2>Go<a class="anchor" id="language-guides-golang"></a></h2>
+
+<p>In order to run tests for a <strong>go</strong> project you need to specify the language:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">`language: go`
+</code></pre></div>
+<p><code>go version 1.2.2</code> will be used for running the tests and the following commands will be run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">install: go get -v ./...
+script: go test -v ./...
+</code></pre></div>
+<p>These versions of <strong>go</strong> are available</p>
+
+<ul>
+<li><code>1.1.2</code></li>
+<li><code>1.2.2</code></li>
+<li><code>1.3</code></li>
+<li><code>1.3.1</code></li>
+<li><code>1.3.2</code></li>
+<li><code>1.3.3</code></li>
+<li><code>1.4.2</code></li>
+<li><code>1.5</code></li>
+<li><code>1.5.1</code></li>
+<li><code>1.5.2</code></li>
+<li><code>1.5.3</code></li>
+<li><code>1.6</code></li>
+</ul>
+
+<p>To select a specific version for testing, a <code>go</code> config key should be used:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">rvm:
+- 1.1
+- 1.3
+- tip
+</code></pre></div>
+<p>When searching the <strong>go</strong> version, fuzzy matching is used, which first tries to find a
+match strictly, and then falls back to the closest version if not found.</p>
+
+<h2>Rust<a class="anchor" id="language-guides-rust"></a></h2>
+
+<p>In order to run the <strong>rust</strong> tests, you need to specify:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">language: rust
+</code></pre></div>
+<p>In this case the version <code>0.11</code> will be used and the following commands will be run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">install:
+- git submodule init
+- git submodule update
+
+script: make
+</code></pre></div>
+<p>These versions of <strong>rust</strong> are available for testing</p>
+
+<ul>
+<li><code>0.11.0</code></li>
+<li><code>0.12.0</code></li>
+<li><code>1.0.0</code></li>
+<li><code>1.2.0</code></li>
+<li><code>1.3.0</code></li>
+<li><code>1.4.0</code></li>
+<li><code>1.5.0</code></li>
+<li><code>1.6.0</code></li>
+<li><code>1.7.0</code></li>
+<li><code>1.8.0</code></li>
+</ul>
+
+<p>To select the specific version for testing, a configuration key <code>rust</code> is used</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">rust:
+- 1.2.0
+</code></pre></div>
+<h1>Deploiyng your application<a class="anchor" id="deploy"></a></h1>
+
+<p>Soon.</p>
+
+<ul>
+<li>Capistrano examples</li>
+<li>Ansible examples</li>
+</ul>
+
+<h1>SSHing into a build<a class="anchor" id="ssh"></a></h1>
+
+<p>Soon.</p>
+
+<h1>Billing<a class="anchor" id="billing"></a></h1>
+
+<p>Soon.</p>
+
+    </div>
+  </div>
+</div>
+
+      </div>
+
+
+    </div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/turbolinks/1.3.0/turbolinks.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.4.13/jquery.smooth-scroll.min.js"></script>
+
+    
+
+  </body>
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-47910635-1', 'auto');
+ga('send', 'pageview');
+    </script>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter23972557 = new Ya.Metrika({id:23972557, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/23972557" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script>
+  var ready = function() {
+    $(document).on("click", "a[data-signup]", function(){
+        ga('send', 'event', 'sign_up', 'click')
+      })
+    $(document).on("click", "a[data-signin]", function(){
+        ga('send', 'event', 'sign_in', 'click');
+      })
+  }
+  $(document).ready(ready)
+  $(document).on("page:load", ready)
+</script>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vexor: Continuous integration in the cloud. </title>
+    <meta charset="utf-8">
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin" media="screen" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="screen" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+    <link href="/stylesheets/landing.css" media="all" rel="stylesheet" />
+    <link href="/stylesheets/content.css" media="all" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="/blog/feed.xml">
+  </head>
+  <body>
+    <div class='landing'>
+      <nav class='navbar navbar-default' role='navigation'>
+        <div class='container-fluid'>
+          <div class='container'>
+            <div class='row'>
+              <div class='navbar-header header-logo'>
+                <a class='navbar-brand' href='/'><img alt="Logo" class="logo" src="/images/landing/logo.png" /></a>
+              </div>
+
+              <button class='navbar-toggle pull-right' data-target='#navbar-items' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar' ></span>
+                <span class='icon-bar' ></span>
+                <span class='icon-bar' ></span>
+              </button>
+
+              <div class="clearfix"></div>
+              <div class='collapse navbar-collapse' id='navbar-items'>
+                <ul class='nav navbar-nav'>
+                  <li><a data-scroll="true" href="/#features"><span>Особенности</span></a></li>
+                  <li><a data-scroll="true" href="/#pricing"><span>Стоимость</span></a></li>
+                  <li><a href="https://vexor.io/help/"><span>Документация</span></a></li>
+                  <li><a href="https://medium.com/vexor-ci-russian"><span>Блог</span></a></li>
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                  <li>
+                    <a data-signin=true href="https://ci.vexor.io/ui">
+                      Войти
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="page">
+        <div class="content-block content-block-body">
+  <div class="container">
+    <h1>Security</h1>
+
+<p>We know your code is extremely important to you and your business, and we&#39;re
+very protective of it.</p>
+
+<p>Need to report a security vulnerability? Please inform us by sending email to
+<a href="mailto:support@vexor.io">support@vexor.io</a></p>
+
+<p><strong>Physical Security</strong></p>
+
+<ul>
+<li>Data center access limited to data center technicians and approved Vexor staff</li>
+<li>Biometric scanning for controlled data center access</li>
+<li>Security camera monitoring at all data center locations</li>
+<li>24x7 onsite staff provides additional protection against unauthorized entry</li>
+<li>Unmarked facilities to help maintain low profile</li>
+<li>Physical security audited by an independent firm</li>
+<li>System Security</li>
+</ul>
+
+<p><strong>System installation using hardened, patched OS</strong></p>
+
+<ul>
+<li>Dedicated firewall and VPN services to help block unauthorized system access</li>
+<li>Dedicated intrusion detection devices to provide an additional layer of protection against unauthorized system access</li>
+<li>Distributed Denial of Service (DDoS) mitigation services powered by industry-leading solutions</li>
+</ul>
+
+<p><strong>Operational Security</strong></p>
+
+<ul>
+<li>Systems access logged and tracked for auditing purposes</li>
+<li>Secure document-destruction policies for all sensitive information</li>
+<li>Fully documented change-management procedures</li>
+</ul>
+
+<p><strong>Software Security</strong></p>
+
+<p>We employ a team of 24/7/365 server specialists at Vexor to keep our software
+and its dependencies up to date eliminating potential security vulnerabilities.
+We employ a wide range of monitoring solutions for preventing and eliminating
+attacks to the site.</p>
+
+<p><strong>Communications</strong></p>
+
+<p>All private data exchanged with Vexor is always transmitted over SSL (which is
+why your dashboard is served over HTTPS, for instance). All pushing and pulling
+of private data is done over SSH authenticated with keys, or over HTTPS using
+your Vexor username and password.</p>
+
+<p><strong>File system and backups</strong></p>
+
+<p>Every piece of hardware we use has an identical copy ready and waiting for an
+immediate hot-swap in case of hardware or software failure. Every line of code
+we store is saved on a minimum of three different servers, including an
+off-site backup just in case a meteor ever hits our data centers (we&#39;ll keep
+our fingers crossed that doesn&#39;t happen). We do not retroactively remove
+repositories from backups when deleted by the user, as we may need to restore
+the repository for the user if it was removed accidentally.</p>
+
+<p>We do not encrypt repositories on disk because it would not be any more secure:
+the website and git back-end would need to decrypt the repositories on demand,
+slowing down response times. Any user with shell access to the file system
+would have access to the decryption routine, thus negating any security it
+provides. Therefore, we focus on making our machines and network as secure as
+possible.</p>
+
+<p><strong>Employee access</strong></p>
+
+<p>No Vexor employees ever access private repositories unless required to for
+support reasons. Staff working directly in the file store access the compressed
+Git database, your code is never present as plaintext files like it would be in
+a local clone. Support staff may sign into your account to access settings
+related to your support issue. In rare cases staff may need to pull a clone of
+your code, this will only be done with your consent. Support staff does not
+have direct access to clone any repository, they will need to temporarily
+attach their SSH key to your account to pull a clone. When working a support
+issue we do our best to respect your privacy as much as possible, we only
+access the files and settings needed to resolve your issue. All cloned
+repositories are deleted as soon as the support issue has been resolved.</p>
+
+<p><strong>Maintaining security</strong></p>
+
+<p>We protect your login from brute force attacks with rate limiting. All
+passwords are filtered from all our logs and are one-way encrypted in the
+database using bcrypt. Login information is always sent over SSL.</p>
+
+<p><strong>Credit card safety</strong></p>
+
+<p>When you sign up for a paid account on Vexor, we do not store any of your card
+information on our servers. It&#39;s handed off to <a href="http://cloudpayments.eu/">http://cloudpayments.eu/</a>, a company dedicated to
+storing your sensitive data on PCI-Compliant servers.</p>
+
+  </div>
+</div>
+
+
+<div class='block-footer landing-block-footer text-center'>
+  <div class='container'>
+    <div class='row fast-setup'>
+      <div class='col-sm-12'>
+        Настройте continuous integration<br>за 18 секунд.
+      </div>
+    </div>
+    <div class='row sign-up-description'>
+      <div class='col-sm-12'>
+        Зарегистрируйтесь на Vexor сегодня.
+      </div>
+    </div>
+    <div class='row sign-up'>
+      <div class='col-sm-12'>
+        <a class="btn btn-primary" data-signup=true href="https://ci.vexor.io/users/github?do=sign_up">
+          Попробовать сейчас!
+        </a>
+      </div>
+    </div>
+    <div class='row logo'>
+      <div class='col-sm-12'>
+        <a href="https://vexor.io/">
+          <img alt="Footer logo" src="/images/landing/footer-logo.png" />
+        </a>
+      </div>
+    </div>
+    <div class='row copyright'>
+      <div class='col-sm-12'>
+        © 2014–2016, VEXOR. Все права защищены. Проект <a href='http://evrone.ru/'>Evrone</a>.
+      </div>
+    </div>
+    <div class='row items'>
+      <div class='col-sm-12'>
+        <a href="https://vexor.io/p/terms.html">Соглашение</a>
+        <a href="https://vexor.io/p/security.html">Безопасность</a>
+        <a href="https://vexor.io/p/privacy.html">Конфиденциальность</a>
+        <a href="mailto:support@vexor.io">Контакты</a>
+      </div>
+    </div>
+    <div class='row logos'>
+      <div class='col-sm-12'>
+        <img src="/images/footer/visa.jpg">
+        <img src="/images/footer/visa_verified.gif">
+        <img src="/images/footer/mc.jpg">
+        <img src="/images/footer/mc-secure.gif">
+        <img src="/images/footer/cp.png">
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+
+    </div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/turbolinks/1.3.0/turbolinks.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.4.13/jquery.smooth-scroll.min.js"></script>
+
+    
+    <script src="/javascripts/landing.js"></script>
+    
+
+  </body>
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-47910635-1', 'auto');
+ga('send', 'pageview');
+    </script>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter23972557 = new Ya.Metrika({id:23972557, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/23972557" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script>
+  var ready = function() {
+    $(document).on("click", "a[data-signup]", function(){
+        ga('send', 'event', 'sign_up', 'click')
+      })
+    $(document).on("click", "a[data-signin]", function(){
+        ga('send', 'event', 'sign_in', 'click');
+      })
+  }
+  $(document).ready(ready)
+  $(document).on("page:load", ready)
+</script>
+</html>

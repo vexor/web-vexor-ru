@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vexor: Continuous integration in the cloud. </title>
+    <meta charset="utf-8">
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin" media="screen" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="screen" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+    <link href="/stylesheets/landing.css" media="all" rel="stylesheet" />
+    <link href="/stylesheets/content.css" media="all" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="/blog/feed.xml">
+  </head>
+  <body>
+    <div class='landing'>
+      <nav class='navbar navbar-default' role='navigation'>
+        <div class='container-fluid'>
+          <div class='container'>
+            <div class='row'>
+              <div class='navbar-header header-logo'>
+                <a class='navbar-brand' href='/'><img alt="Logo" class="logo" src="/images/landing/logo.png" /></a>
+              </div>
+
+              <button class='navbar-toggle pull-right' data-target='#navbar-items' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar' ></span>
+                <span class='icon-bar' ></span>
+                <span class='icon-bar' ></span>
+              </button>
+
+              <div class="clearfix"></div>
+              <div class='collapse navbar-collapse' id='navbar-items'>
+                <ul class='nav navbar-nav'>
+                  <li><a data-scroll="true" href="/#features"><span>Особенности</span></a></li>
+                  <li><a data-scroll="true" href="/#pricing"><span>Стоимость</span></a></li>
+                  <li><a href="https://vexor.io/help/"><span>Документация</span></a></li>
+                  <li><a href="https://medium.com/vexor-ci-russian"><span>Блог</span></a></li>
+                </ul>
+                <ul class='nav navbar-nav navbar-right'>
+                  <li>
+                    <a data-signin=true href="https://ci.vexor.io/ui">
+                      Войти
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="page">
+        <div class='block-header landing-block-header text-center'>
+    <div class='container'>
+        <div class='main-image'>
+            <div class='col-sm-12'><img src="./images/landing/scheme.svg"/></div>
+        </div>
+        <h1 class='title'>
+            Continuous Integration без очередей.<br />С поминутной оплатой.
+        </h1>
+
+
+        <div class='row sign-up'>
+            <div class='col-sm-6' style="text-align: right;">
+                <a class="btn btn-primary" data-signup=true href="https://ci.vexor.io/users/github?do=sign_up">
+                    <div class='icon fa fa-github'></div>
+                    <div class='content'>Войти через GitHub</div>
+                </a>
+            </div>
+            <div class="col-sm-6" style="text-align: left;">
+                <a class="btn btn-primary" style="margin-left: 10px" data-signup=true
+                   href="https://ci.vexor.io/users/bitbucket?do=sign_up">
+                    <div class='icon fa fa-bitbucket'></div>
+                    <div class='content'>Войти через BitBucket</div>
+                </a>
+            </div>
+        </div>
+        <div class="row clients">
+            <div class="cl-md col-md-2 col-md-offset-1"><img src="./images/landing/clients/meduza.svg" alt=""/></div>
+            <!-- <div class="cl-rm col-sm-2"><img src="./images/landing/clients/rambler.svg" alt="" /></div> -->
+            <div class="cl-bm col-md-2"><img src="./images/landing/clients/bookmate.svg" alt=""/></div>
+            <div class="cl-cc col-md-2"><img src="./images/landing/clients/cloud_castle.svg" alt=""/></div>
+            <div class="cl-is col-md-2"><img src="./images/landing/clients/insales.svg" alt=""/></div>
+            <div class="cl-brm col-md-2"><img src="./images/landing/clients/brandymint.svg" alt=""/></div>
+        </div>
+
+        <div class="row down-sign">
+            <a data-scroll="true" href="./#description">
+                <img src="./images/landing/down.svg" alt="scroll down"/>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class='block-description landing-block-description text-center' id="description">
+    <div class='container'>
+        <div class='row title'>
+            <div class='col-sm-12'>
+                Быстро, дешево, просто – вы получаете все три
+            </div>
+        </div>
+        <div class='row items'>
+            <div class='row'>
+                <div class='col-sm-4'>
+                    <div class='image'><img alt="Fast" src="./images/landing/fast.svg"/></div>
+                    <div class='subtitle' style="white-space: nowrap;">Быстро</div>
+                    <div class='description'>Безлимитные ресурсы</div>
+                    <div class='separator'>.</div>
+                    <div class='description'>С легкостью <br />распараллеливайте тесты</div>
+                    <div class="separator">.</div>
+                    <div class="description">В каждом воркере:<br />2 ядра, 4Гб памяти, SSD</div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='image'><img alt="Cheap" src="./images/landing/cheap.svg"/></div>
+                    <div class='subtitle'>Дешево</div>
+                    <div class='description'>$0.015 в минуту</div>
+                    <div class='separator'>.</div>
+                    <div class='description'>Никаких подписок, вы платите<br />только за реальное время тестов</div>
+                </div>
+                <div class='col-sm-4'>
+                    <div class='image'><img alt="Easy" src="./images/landing/easy.svg"/></div>
+                    <div class='subtitle'>Простая настройка</div>
+                    <div class='description'>Полная интеграция с <br />Github, Bitbucket и Gitlab</div>
+                    <div class="separator">.</div>
+                    <div class="description">Совместимость с .travis.yml</div>
+                    <div class='separator'>.</div>
+                    <div class='description'>Настройка в один клик</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='block-features landing-block-features text-center' id='features'>
+    <div class='container'>
+        <div class='row icon'>
+            <div class='col-sm-12 features'>
+                <img alt="Features" src="./images/landing/features.svg"/>
+            </div>
+        </div>
+        <div class='row title'>
+            <div class='col-sm-12'>
+                Особенности
+            </div>
+        </div>
+        <div class='row items'>
+            <div class='col-sm-4'>
+                <div class='item'>
+                    <div class='image'><img alt="Github" src="./images/landing/github.png"/></div>
+                    <div class='description'>Интеграция с GitHub, Bitbucket и Gitlab</div>
+                </div>
+                <div class='item'>
+                    <div class='image'><img alt="Matrices" src="./images/landing/matrices.png"/></div>
+                    <div class='description'>Распараллеливание тестов при помощи матриц</div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class='item'>
+                    <div class='image'><img alt="Notification" src="./images/landing/notification.png"/></div>
+                    <div class='description'>Уведомления о коммитах и пулл реквестах</div>
+                </div>
+                <div class='item'>
+                    <div class='image'><img alt="Travis" src="./images/landing/travis.png"/></div>
+                    <div class='description'>Совместимость с .travis.yml</div>
+                </div>
+            </div>
+            <div class='col-sm-4'>
+                <div class='item'>
+                    <div class='image'><img alt="Dependency" src="./images/landing/dependency.png"/></div>
+                    <div class='description'>Кеширование зависимостей</div>
+                </div>
+                <div class='item'>
+                    <div class='image'><img alt="Deploy" src="./images/landing/deploy.png"/></div>
+                    <div class='description'>Автоматический деплой,<br/>если тесты прошли успешно</div>
+                </div>
+            </div>
+        </div>
+
+        <div class='row supports-title'>
+            <div class='col-sm-12'>
+                Поддерживаем из коробки:
+            </div>
+        </div>
+        <div class='row supports-items'>
+            <div class='col-sm-2'>
+                <a target="_blank" href="https://ruby-lang.org/"><img alt="Ruby" title="Ruby"
+                                                                      src="./images/landing/logos/ruby.svg"/></a>
+            </div>
+            <div class='col-sm-2'>
+                <a target="_blank" href="https://rubyonrails.org/"><img alt="Ruby On Rails" title="Rails"
+                                                                        src="./images/landing/logos/rails.svg"/></a>
+            </div>
+            <div class='col-sm-2'>
+                <a target="_blank" href="https://www.python.org/"><img alt="Python" title="Python"
+                                                                       src="./images/landing/logos/python.svg"/></a>
+            </div>
+            <div class='col-sm-2'>
+                <a target="_blank" href="https://nodejs.org"><img alt="Node.js" title="Node.js"
+                                                                  src="./images/landing/logos/node.svg"/></a>
+            </div>
+
+            <div class='col-sm-2'>
+                <a target="_blank" href="http://clojure.org/"><img alt="Clojure" title="Clojure"
+                                                                   src="./images/landing/logos/clojure.svg"/></a>
+            </div>
+            <div class='col-sm-2'>
+                <a target="_blank" href="http://www.scala-lang.org/"><img alt="Scala" title="Scala"
+                                                                          src="./images/landing/logos/scala.svg"/></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='block-pricing landing-block-pricing text-center' id='pricing'>
+    <div class='container'>
+        <div class='row icon'>
+            <div class='col-sm-12'>
+                <img alt="Pricing" src="./images/landing/price.svg"/>
+            </div>
+        </div>
+        <div class='row title'>
+            <div>Стоимость</div>
+            <div class='row description'>
+                <div class='col-sm-12'>VEXOR стоит <em>всего $0.015 за минуту</em>. 100 бесплатных минут в месяц.</div>
+            </div>
+
+        </div>
+        <div class='row pay_as_you_go'>
+            <div class='col-sm-12'>
+                Размер месячного чека зависит от скорости и количества тестов. Платите за столько, сколько используете.
+            </div>
+        </div>
+        <!--
+        <div class='table-responsive table-wraper'>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Commits per day</th>
+                <th>Commits per month</th>
+                <th>Build duration (min)</th>
+                <th>Monthly cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class='project-type'>small</td>
+                <td>1</td>
+                <td>20</td>
+                <td>5</td>
+                <td>$1</td>
+              </tr>
+              <tr>
+                <td class='project-type'>medium</td>
+                <td>5</td>
+                <td>100</td>
+                <td>10</td>
+                <td>$10</td>
+              </tr>
+              <tr>
+                <td class='project-type'>large</td>
+                <td>10</td>
+                <td>200</td>
+                <td>15</td>
+                <td>$30</td>
+              </tr>
+              <tr>
+                <td class='project-type'>giant</td>
+                <td>20</td>
+                <td>400</td>
+                <td>20</td>
+                <td>$80</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        -->
+    </div>
+</div>
+
+<div class='block-features landing-block-features landing-block-replies text-center' id='features'>
+    <div class='container'>
+        <div class='row icon'>
+            <div class='col-sm-12'>
+                <img alt="List" src="./images/landing/developer.svg"/>
+            </div>
+        </div>
+        <div class='row title'>
+            <div class='col-sm-12'>
+                Сделано разработчиками для разработчиков
+            </div>
+        </div>
+        <div class="row row-replies">
+            <div class="col-sm-4">
+                <div class="description">
+                    “В нашем проекте 6400 тестов. И даже когда пул-реквесты идут десятками, Vexor все прогоняет каким-то чудом за 10 минут, и ничего не ломается.“
+                </div>
+                <div class='col-sm-12 user-data'>
+                    <img alt="user" src="./images/landing/avatar_blinov.png" class="user-avatar"/>
+
+                    <div class="user-info">Алексей Блинов, CTO<br/> Scalex</div>
+                </div>
+
+                <div class="description">
+                    “Привет! У нас есть городской портал klops.ru. У нас примерно 300 тестов с общим временем 3-5 минут. Средний чек в месяц примерно $10.”
+                </div>
+                <div class='col-sm-12 user-data'>
+                    <img alt="user" src="./images/landing/avatar_vd.png" class="user-avatar"/>
+
+                    <div class="user-info">Вольдемар Дулецкий, CTO<br/>Klops.ru</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="description">
+                    “Vexor помогаем нам тестировать все наши бранчи параллельно. И в итоге у нас выходит 8 минут на больше, чем 3000 тестов!”
+                </div>
+                <div class='col-sm-12 user-data'>
+                    <img alt="user" src="./images/landing/avatar_ab.png" class="user-avatar"/>
+
+                    <div class="user-info">Александр Балашов, CTO<br/>Uptopromo.com</div>
+                </div>
+                <div class="description">
+                    “Мы, маленькая команда разработчиков, выбираем Vexor из-за оптимальной цены - платишь только за реальное время тестов. И еще нам нравится скорость.”
+                </div>
+                <div class='col-sm-12 user-data'>
+                    <img alt="user" src="./images/landing/avatar_zotov.png" class="user-avatar"/>
+
+                    <div class="user-info">Иван Зотов, CEO<br/>Railsmob</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="description">
+                    “У нас больше 1000 тестов и они проходят всего за 4.5 минуты. Спасибо команде Vexor за помощь с настройкой и значительно меньшей цене, чем у конкурентов!”
+                </div>
+                <div class='col-sm-12 user-data'>
+                    <img alt="user" src="./images/landing/avatar_vlad.png" class="user-avatar"/>
+
+                    <div class="user-info">Влад Сябрук, ведущий разработчик<br/>Bookmate.com</div>
+                </div>
+                <div class="description">
+                    “Starttrack - проект с большим количеством тестов. Поэтому мы очень удовлетворены производительностью Vexor за такую доступную цену”
+                </div>
+                <div class='col-sm-12 user-data'>
+                    <img alt="user" src="./images/landing/avatar_b.png" class="user-avatar"/>
+
+                    <div class="user-info">Александр Барышников, CTO<br/>Starttrack.ru</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class='block-footer landing-block-footer text-center'>
+  <div class='container'>
+    <div class='row fast-setup'>
+      <div class='col-sm-12'>
+        Настройте continuous integration<br>за 18 секунд.
+      </div>
+    </div>
+    <div class='row sign-up-description'>
+      <div class='col-sm-12'>
+        Зарегистрируйтесь на Vexor сегодня.
+      </div>
+    </div>
+    <div class='row sign-up'>
+      <div class='col-sm-12'>
+        <a class="btn btn-primary" data-signup=true href="https://ci.vexor.io/users/github?do=sign_up">
+          Попробовать сейчас!
+        </a>
+      </div>
+    </div>
+    <div class='row logo'>
+      <div class='col-sm-12'>
+        <a href="https://vexor.io/">
+          <img alt="Footer logo" src="/images/landing/footer-logo.png" />
+        </a>
+      </div>
+    </div>
+    <div class='row copyright'>
+      <div class='col-sm-12'>
+        © 2014–2016, VEXOR. Все права защищены. Проект <a href='http://evrone.ru/'>Evrone</a>.
+      </div>
+    </div>
+    <div class='row items'>
+      <div class='col-sm-12'>
+        <a href="https://vexor.io/p/terms.html">Соглашение</a>
+        <a href="https://vexor.io/p/security.html">Безопасность</a>
+        <a href="https://vexor.io/p/privacy.html">Конфиденциальность</a>
+        <a href="mailto:support@vexor.io">Контакты</a>
+      </div>
+    </div>
+    <div class='row logos'>
+      <div class='col-sm-12'>
+        <img src="/images/footer/visa.jpg">
+        <img src="/images/footer/visa_verified.gif">
+        <img src="/images/footer/mc.jpg">
+        <img src="/images/footer/mc-secure.gif">
+        <img src="/images/footer/cp.png">
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+
+    </div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/turbolinks/1.3.0/turbolinks.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.4.13/jquery.smooth-scroll.min.js"></script>
+
+    
+    <script src="/javascripts/landing.js"></script>
+    
+
+  </body>
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-47910635-1', 'auto');
+ga('send', 'pageview');
+    </script>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter23972557 = new Ya.Metrika({id:23972557, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/23972557" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script>
+  var ready = function() {
+    $(document).on("click", "a[data-signup]", function(){
+        ga('send', 'event', 'sign_up', 'click')
+      })
+    $(document).on("click", "a[data-signin]", function(){
+        ga('send', 'event', 'sign_in', 'click');
+      })
+  }
+  $(document).ready(ready)
+  $(document).on("page:load", ready)
+</script>
+</html>
